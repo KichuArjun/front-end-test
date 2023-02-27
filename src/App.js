@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import { BrowserRouter,Routes,Route, Router } from 'react-router-dom'
+import Home from './home'
+import Hello from './frontend';
+import Login from './login'
+import './frontend.css';
+import './levi.css'
+import './livi.jpg'
 
 function App() {
+const [paths,setpaths]=useState('/')
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      
+        <Routes>
+          <Route  path={paths} element={ <Hello/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/home'  element={<Home/>}/>
+             
+          
+        </Routes>
+      
+    
+    </BrowserRouter>
+    
   );
 }
 
